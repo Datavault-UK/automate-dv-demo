@@ -14,7 +14,7 @@ based on the Snowflake TPC-H dataset.
 
 Click the button above to read the latest dbtvault docs.
 
-There, you will also find a guide for this demonstration project. 
+Example project guide coming soon!
 
 ---
 [dbt](https://www.getdbt.com/) is a registered trademark of [Fishtown Analytics](https://www.fishtownanalytics.com/).
