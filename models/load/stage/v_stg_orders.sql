@@ -1,6 +1,6 @@
 {{- config(materialized='view', schema='STG', enabled=true, tags='stage') -}}
 
-{%- set source_table = ref('src_orders') -%}
+{%- set source_table = ref('raw_orders') -%}
 
 {{ dbtvault.multi_hash([('CUSTOMERKEY', 'CUSTOMER_PK'),
 (['CUSTOMERKEY', 'CUSTOMER_NATIONKEY'], 'CUSTOMER_NATION_PK'),

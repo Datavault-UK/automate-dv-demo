@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: SRC
+  - name: RAW
     database: DV_PROTOTYPE_DB
-    schema: DEMO_SRC
+    schema: DEMO_RAW
     tables:
       - name: src_orders
       - name: src_inventory

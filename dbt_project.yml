@@ -27,8 +27,8 @@ models:
         schema: "STG"
         enabled: true
         materialized: view
-      source:
-        schema: "SRC"
+      raw:
+        schema: "RAW"
         enabled: true
         materialized: incremental
   vars:
