@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', enabled=true, tags='src')}}
+{{ config(materialized='incremental', enabled=true, tags='raw')}}
 
 select
   a.PS_PARTKEY as PARTKEY,
