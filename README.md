@@ -1,11 +1,6 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/25080503/65772647-89525700-e132-11e9-80ff-12ad30a25466.png">
 </p>
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/25080503/67866363-bf636c00-fb20-11e9-99b8-ff43ffdb8536.png">
-</p>
-
-
 
 ### dbt models for dbtvault Snowflake Demonstration
 
