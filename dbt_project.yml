@@ -1,0 +1,35 @@
+name: snowflakeDemo
+profile: snowflake-demo
+version: '1.0'
+
+analysis-paths:
+- analysis
+clean-targets:
+- target
+- dbt_modules
+data-paths:
+- data
+macro-paths:
+- macros
+source-paths:
+- models
+test-paths:
+- tests
+target-path: target
+
+models:
+  snowflakeDemo:
+    load:
+      schema: "VLT"
+      enabled: true
+      materialized: incremental
+      stage:
+        schema: "STG"
+        enabled: true
+        materialized: view
+      source:
+        schema: "SRC"
+        enabled: true
+        materialized: incremental
+  vars:
+    date: TO_DATE('1992-01-08')

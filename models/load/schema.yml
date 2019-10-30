@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: SRC
+    database: DV_PROTOTYPE_DB
+    schema: DEMO_SRC
+    tables:
+      - name: src_orders
+      - name: src_inventory
+  - name: STG
+    database: DV_PROTOTYPE_DB
+    schema: DEMO_STG
+    tables:
+      - name: stg_orders
+        identifier: v_stg_orders
+      - name: stg_inventory
+        identifier: v_stg_inventory

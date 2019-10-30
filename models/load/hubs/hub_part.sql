@@ -1,0 +1,18 @@
+{{- config(materialized='incremental', schema='VLT', enabled=true, tags='hub') -}}
+
+{%- set source = [ref('v_stg_orders'),
+ref('v_stg_inventory')] -%}
+
+{%- set src_pk = 'PART_PK' -%}
+{%- set src_nk = 'PART_KEY' -%}
+{%- set src_ldts = 'LOADDATE' -%}
+{%- set src_source = 'SOURCE' -%}
+
+{%- set tgt_pk = source -%}
+{%- set tgt_nk = source -%}
+{%- set tgt_ldts = source -%}
+{%- set tgt_source = ['SOURCE', 'VARCHAR(14)', 'SOURCE'] -%}
+
+{{ dbtvault.hub_template(src_pk, src_nk, src_ldts, src_source,
+                         tgt_pk, tgt_nk, tgt_ldts, tgt_source,
+                         source) }}
