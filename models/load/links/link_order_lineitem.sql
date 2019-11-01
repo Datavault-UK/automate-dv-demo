@@ -2,14 +2,14 @@
 
 {%- set source = [ref('v_stg_orders')] -%}
 
-{%- set src_pk = 'LINEITEM_ORDER_PK' -%}
-{%- set src_fk = ['LINEITEM_PK', 'ORDER_PK'] -%}
+{%- set src_pk = 'LINK_LINEITEM_ORDER_PK' -%}
+{%- set src_fk = ['ORDER_PK', 'LINEITEM_PK'] -%}
 {%- set src_ldts = 'LOADDATE' -%}
 {%- set src_source = 'SOURCE' -%}
 
-{%- set tgt_pk = source -%}
-{%- set tgt_fk = [['LINEITEM_PK', 'BINARY(16)', 'LINEITEM_FK'],
-['ORDER_PK', 'BINARY(16)', 'ORDER_FK']] -%}
+{%- set tgt_pk = ['LINK_LINEITEM_ORDER_PK', 'BINARY(16)', 'LINEITEM_ORDER_PK'] -%}
+{%- set tgt_fk = [['ORDER_PK', 'BINARY(16)', 'ORDER_FK'],
+['LINEITEM_PK', 'BINARY(16)', 'LINEITEM_FK']] -%}
 {%- set tgt_ldts = source -%}
 {%- set tgt_source = source -%}
 

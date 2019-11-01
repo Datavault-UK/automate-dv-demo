@@ -1,4 +1,4 @@
-{{config(materialized='view', enabled=true, tags='raw')}}
+{{config(materialized='view', enabled=true, tags='src')}}
 
 select
     a.L_ORDERKEY as ORDERKEY,
@@ -36,9 +36,7 @@ select
     d.N_REGIONKEY as CUSTOMER_REGIONKEY,
     d.N_COMMENT as CUSTOMER_NATION_COMMENT,
     e.R_NAME as CUSTOMER_REGION_NAME,
-    e.R_COMMENT as CUSTOMER_REGION_COMMENT,
-    h.S_NATIONKEY as SUPPLIER_NATIONKEY,
-    j.N_REGIONKEY as SUPPLIER_REGIONKEY
+    e.R_COMMENT as CUSTOMER_REGION_COMMENT
 from SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.ORDERS as b
 left join SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.LINEITEM as a on a.L_ORDERKEY=b.O_ORDERKEY
 left join SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.CUSTOMER as c on b.O_CUSTKEY = c.C_CUSTKEY

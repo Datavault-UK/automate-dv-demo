@@ -5,8 +5,8 @@ sources:
     database: DV_PROTOTYPE_DB
     schema: DEMO_RAW
     tables:
-      - name: src_orders
-      - name: src_inventory
+      - name: raw_orders
+      - name: raw_inventory
   - name: STG
     database: DV_PROTOTYPE_DB
     schema: DEMO_STG

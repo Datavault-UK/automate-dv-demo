@@ -4,7 +4,7 @@
 
 {%- set src_pk = 'SUPPLIER_PK' -%}
 {%- set src_hashdiff = 'SUPPLIER_NATION_HASHDIFF' -%}
-{%- set src_payload = ['NATION_NAME', 'NATION_COMMENT'] -%}
+{%- set src_payload = ['SUPPLIER_NATION_NAME', 'SUPPLIER_NATION_COMMENT'] -%}
 
 {%- set src_eff = 'EFFECTIVE_FROM' -%}
 {%- set src_ldts = 'LOADDATE' -%}

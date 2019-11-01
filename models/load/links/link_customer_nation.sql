@@ -2,12 +2,12 @@
 
 {%- set source = [ref('v_stg_orders')] -%}
 
-{%- set src_pk = 'CUSTOMER_NATION_PK' -%}
+{%- set src_pk = 'LINK_CUSTOMER_NATION_PK' -%}
 {%- set src_fk = ['CUSTOMER_PK', 'NATION_PK'] -%}
 {%- set src_ldts = 'LOADDATE' -%}
 {%- set src_source = 'SOURCE' -%}
 
-{%- set tgt_pk = source -%}
+{%- set tgt_pk = ['LINK_CUSTOMER_NATION_PK', 'BINARY(16)', 'CUSTOMER_NATION_PK'] -%}
 {%- set tgt_fk = [['CUSTOMER_PK', 'BINARY(16)', 'CUSTOMER_FK'],
 ['NATION_PK', 'BINARY(16)', 'NATION_FK']] -%}
 {%- set tgt_ldts = source -%}
