@@ -1,4 +1,4 @@
 packages:
 
   - git: "https://github.com/Datavault-UK/dbtvault"
-    revision: v0.3.2-pre # Latest stable version
+    revision: v0.4 # Latest stable version
