@@ -7,9 +7,9 @@
 {%- set src_ldts = 'LOADDATE' -%}
 {%- set src_source = 'SOURCE' -%}
 
-{%- set tgt_pk = ['LINK_LINEITEM_ORDER_PK', 'BINARY(16)', 'LINEITEM_ORDER_PK'] -%}
-{%- set tgt_fk = [['ORDER_PK', 'BINARY(16)', 'ORDER_FK'],
-['LINEITEM_PK', 'BINARY(16)', 'LINEITEM_FK']] -%}
+{%- set tgt_pk = ['LINK_LINEITEM_ORDER_PK', 'BINARY', 'LINEITEM_ORDER_PK'] -%}
+{%- set tgt_fk = [['ORDER_PK', 'BINARY', 'ORDER_FK'],
+['LINEITEM_PK', 'BINARY', 'LINEITEM_FK']] -%}
 {%- set tgt_ldts = source -%}
 {%- set tgt_source = source -%}
 

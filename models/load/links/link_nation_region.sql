@@ -9,8 +9,8 @@ ref('v_stg_inventory')] -%}
 {%- set src_source = 'SOURCE' -%}
 
 {%- set tgt_pk = source -%}
-{%- set tgt_fk = [['NATION_PK', 'BINARY(16)', 'NATION_FK'],
-['REGION_PK', 'BINARY(16)', 'REGION_FK']] -%}
+{%- set tgt_fk = [['NATION_PK', 'BINARY', 'NATION_FK'],
+['REGION_PK', 'BINARY', 'REGION_FK']] -%}
 {%- set tgt_ldts = source -%}
 {%- set tgt_source = ['SOURCE', 'VARCHAR(14)', 'SOURCE'] -%}
 

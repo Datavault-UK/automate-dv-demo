@@ -8,9 +8,9 @@
 {%- set src_source = 'SOURCE' -%}
 
 {%- set tgt_pk = source -%}
-{%- set tgt_fk = [['PART_PK', 'BINARY(16)', 'PART_FK'],
-['SUPPLIER_PK', 'BINARY(16)', 'SUPPLIER_FK'],
-['LINEITEM_PK', 'BINARY(16)', 'LINEITEM_FK']] -%}
+{%- set tgt_fk = [['PART_PK', 'BINARY', 'PART_FK'],
+['SUPPLIER_PK', 'BINARY', 'SUPPLIER_FK'],
+['LINEITEM_PK', 'BINARY', 'LINEITEM_FK']] -%}
 {%- set tgt_ldts = source -%}
 {%- set tgt_source = source -%}
 

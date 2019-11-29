@@ -33,3 +33,4 @@ models:
         materialized: incremental
   vars:
     date: TO_DATE('1992-01-08')
+    hash: SHA # or MD5
