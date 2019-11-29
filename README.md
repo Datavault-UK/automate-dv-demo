@@ -4,7 +4,7 @@
 
 ### dbt models for dbtvault Snowflake Demonstration
 
-This is a downloadable example dbt project using dbtvault to create a Data Vault 2.0 Data Warehouse
+This is a downloadable example dbt project using [dbtvault](https://github.com/Datavault-UK/dbtvault) to create a Data Vault 2.0 Data Warehouse
 based on the Snowflake TPC-H dataset.
 
 ---
