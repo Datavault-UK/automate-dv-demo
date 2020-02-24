@@ -7,7 +7,6 @@ sources:
     tables:
       - name: raw_orders
       - name: raw_inventory
-      - name: raw_transactions
   - name: STG
     database: DV_PROTOTYPE_DB
     schema: DEMO_STG
@@ -16,5 +15,3 @@ sources:
         identifier: v_stg_orders
       - name: stg_inventory
         identifier: v_stg_inventory
-      - name: stg_transactions
-        identifier: v_stg_transactions

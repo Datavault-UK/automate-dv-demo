@@ -1,5 +1,5 @@
-name: snowflakeDemo
-profile: snowflake-demo
+name: snowflakeDemoDev
+profile: snowflake-demoDev
 version: '2.2'
 require-dbt-version: [">=0.14.0", "<=0.15.0"]
 
@@ -7,7 +7,6 @@ analysis-paths:
 - analysis
 clean-targets:
 - target
-- dbt_modules
 data-paths:
 - data
 macro-paths:
@@ -19,11 +18,280 @@ test-paths:
 target-path: target
 
 models:
-  snowflakeDemo:
+  snowflakeDemoDev:
     load:
       schema: "VLT"
       enabled: true
       materialized: incremental
+      hubs:
+        enabled: true
+        hub_customer:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'CUSTOMER_PK'
+            src_nk: 'CUSTOMER_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_lineitem:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'LINEITEM_PK'
+            src_nk: 'LINEITEM_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_nation:
+          vars:
+            source:
+              - 'v_stg_orders'
+              - 'v_stg_inventory'
+            src_pk: 'NATION_PK'
+            src_nk: 'NATION_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_order:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'ORDER_PK'
+            src_nk: 'ORDER_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_part:
+          vars:
+            source:
+              - 'v_stg_orders'
+              - 'v_stg_inventory'
+            src_pk: 'PART_PK'
+            src_nk: 'PART_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_region:
+          vars:
+            source:
+              - 'v_stg_orders'
+              - 'v_stg_inventory'
+            src_pk: 'REGION_PK'
+            src_nk: 'REGION_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        hub_supplier:
+          vars:
+            source:
+              - 'v_stg_orders'
+              - 'v_stg_inventory'
+            src_pk: 'SUPPLIER_PK'
+            src_nk: 'SUPPLIER_KEY'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+      links:
+        enabled: true
+        link_customer_nation:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'LINK_CUSTOMER_NATION_PK'
+            src_fk:
+              - 'CUSTOMER_PK'
+              - 'NATION_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        link_customer_order:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'ORDER_CUSTOMER_PK'
+            src_fk:
+              - 'CUSTOMER_PK'
+              - 'ORDER_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        link_inventory:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'INVENTORY_PK'
+            src_fk:
+              - 'SUPPLIER_PK'
+              - 'PART_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        link_inventory_allocation:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'INVENTORY_ALLOCATION_PK'
+            src_fk:
+              - 'PART_PK'
+              - 'SUPPLIER_PK'
+              - 'LINEITEM_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+
+        link_nation_region:
+          vars:
+            source:
+              - 'v_stg_orders'
+              - 'v_stg_inventory'
+            src_pk: 'NATION_REGION_PK'
+            src_fk:
+              - 'NATION_PK'
+              - 'REGION_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        link_order_lineitem:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'LINK_LINEITEM_ORDER_PK'
+            src_fk:
+              - 'ORDER_PK'
+              - 'LINEITEM_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        link_supplier_nation:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'LINK_SUPPLIER_NATION_PK'
+            src_fk:
+              - 'SUPPLIER_PK'
+              - 'NATION_PK'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+      sats:
+        enabled: true
+        sat_inv_inventory_details:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'INVENTORY_PK'
+            src_hashdiff: 'INVENTORY_HASHDIFF'
+            src_payload:
+              - 'AVAILQTY'
+              - 'SUPPLYCOST'
+              - 'PART_SUPPLY_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_inv_part_details:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'PART_PK'
+            src_hashdiff: 'PART_HASHDIFF'
+            src_payload:
+              - 'PART_NAME'
+              - 'PART_MFGR'
+              - 'PART_BRAND'
+              - 'PART_TYPE'
+              - 'PART_SIZE'
+              - 'PART_CONTAINER'
+              - 'PART_RETAILPRICE'
+              - 'PART_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_inv_supp_nation_details:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'SUPPLIER_PK'
+            src_hashdiff: 'SUPPLIER_NATION_HASHDIFF'
+            src_payload:
+              - 'SUPPLIER_NATION_NAME'
+              - 'SUPPLIER_NATION_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_inv_supp_region_details:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'SUPPLIER_PK'
+            src_hashdiff: 'SUPPLIER_REGION_HASHDIFF'
+            src_payload:
+              - 'SUPPLIER_REGION_NAME'
+              - 'SUPPLIER_REGION_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_inv_supplier_details:
+          vars:
+            source: 'v_stg_inventory'
+            src_pk: 'SUPPLIER_PK'
+            src_hashdiff: 'SUPPLIER_HASHDIFF'
+            src_payload:
+              - 'SUPPLIER_ADDRESS'
+              - 'SUPPLIER_PHONE'
+              - 'SUPPLIER_ACCTBAL'
+              - 'SUPPLIER_NAME'
+              - 'SUPPLIER_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_order_cust_nation_details:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'CUSTOMER_PK'
+            src_hashdiff: 'CUSTOMER_NATION_HASHDIFF'
+            src_payload:
+              - 'CUSTOMER_NATION_NAME'
+              - 'CUSTOMER_NATION_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_order_cust_region_details:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'CUSTOMER_PK'
+            src_hashdiff: 'CUSTOMER_REGION_HASHDIFF'
+            src_payload:
+              - 'CUSTOMER_REGION_NAME'
+              - 'CUSTOMER_REGION_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_order_customer_details:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'CUSTOMER_PK'
+            src_hashdiff: 'CUSTOMER_HASHDIFF'
+            src_payload:
+              - 'NAME'
+              - 'ADDRESS'
+              - 'PHONE'
+              - 'ACCBAL'
+              - 'MKTSEGMENT'
+              - 'COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_order_lineitem_details:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'LINEITEM_PK'
+            src_hashdiff: 'LINEITEM_HASHDIFF'
+            src_payload:
+              - 'COMMITDATE'
+              - 'DISCOUNT'
+              - 'EXTENDEDPRICE'
+              - 'LINE_COMMENT'
+              - 'LINESTATUS'
+              - 'QUANTITY'
+              - 'RECEIPTDATE'
+              - 'RETURNFLAG'
+              - 'SHIPDATE'
+              - 'SHIPINSTRUCT'
+              - 'SHIPMODE'
+              - 'TAX'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
+        sat_order_order_details:
+          vars:
+            source: 'v_stg_orders'
+            src_pk: 'ORDER_PK'
+            src_hashdiff: 'ORDER_HASHDIFF'
+            src_payload:
+              - 'ORDERSTATUS'
+              - 'TOTALPRICE'
+              - 'ORDERDATE'
+              - 'ORDERPRIORITY'
+              - 'CLERK'
+              - 'SHIPPRIORITY'
+              - 'ORDER_COMMENT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
       stage:
         schema: "STG"
         enabled: true
@@ -32,6 +300,23 @@ models:
         schema: "RAW"
         enabled: true
         materialized: incremental
+      t_links:
+        enabled: true
+        t_link_transactions:
+          vars:
+            source: 'v_stg_transactions'
+            src_pk: 'TRANSACTION_PK'
+            src_fk:
+              - 'CUSTOMER_FK'
+              - 'ORDER_FK'
+            src_payload:
+              - 'TRANSACTION_NUMBER'
+              - 'TRANSACTION_DATE'
+              - 'TYPE'
+              - 'AMOUNT'
+            src_eff: 'EFFECTIVE_FROM'
+            src_ldts: 'LOADDATE'
+            src_source: 'SOURCE'
   vars:
     date: TO_DATE('1992-01-08')
-    hash: SHA # or MD5
+    hash: 'SHA'

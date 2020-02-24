@@ -1,17 +1,4 @@
-{{- config(materialized='incremental', schema='VLT', enabled=true, tags='hub') -}}
+{{- config(materialized='incremental', schema='VLT', tags='hub') -}}
 
-{%- set source = [ref('v_stg_orders')] -%}
-
-{%- set src_pk = 'LINEITEM_PK' -%}
-{%- set src_nk = 'LINEITEM_KEY' -%}
-{%- set src_ldts = 'LOADDATE' -%}
-{%- set src_source = 'SOURCE' -%}
-
-{%- set tgt_pk = source -%}
-{%- set tgt_nk = source -%}
-{%- set tgt_ldts = source -%}
-{%- set tgt_source = source -%}
-
-{{ dbtvault.hub_template(src_pk, src_nk, src_ldts, src_source,
-                         tgt_pk, tgt_nk, tgt_ldts, tgt_source,
-                         source) }}
+{{ dbtvault.hub(var('src_pk'), var('src_nk'), var('src_ldts'),
+                var('src_source'), var('source') )}}
