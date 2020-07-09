@@ -2,6 +2,7 @@ name: snowflakeDemo
 profile: snowflake-demo
 version: '4.0'
 require-dbt-version: ['>=0.14.0', '<0.18.0']
+config-version: 1
 
 analysis-paths:
   - analysis
