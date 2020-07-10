@@ -20,8 +20,6 @@ target-path: target
 
 models:
   snowflakeDemo:
-    schema: 'VLT'
-    materialized: incremental
     raw_stage:
       schema: 'RAW'
       tags:
