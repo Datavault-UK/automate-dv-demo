@@ -7,6 +7,6 @@ WITH staging AS (
 
 
 SELECT *, 
-       {{ var('load_date') }} AS LOADDATE,
-       {{ var('load_date') }} AS EFFECTIVE_FROM
+       TO_DATE('{{ var('load_date') }}') AS LOADDATE,
+       TO_DATE('{{ var('load_date') }}') AS EFFECTIVE_FROM
 FROM staging

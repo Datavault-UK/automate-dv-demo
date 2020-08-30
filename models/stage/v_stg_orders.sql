@@ -7,5 +7,5 @@ WITH staging AS (
 
 
 SELECT *,
-       {{ var('load_date') }} AS LOADDATE
+       TO_DATE('{{ var('load_date') }}') AS LOADDATE
 FROM staging
