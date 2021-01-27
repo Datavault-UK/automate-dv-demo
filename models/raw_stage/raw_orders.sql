@@ -9,9 +9,9 @@ SELECT
     a.L_TAX AS TAX,
     a.L_RETURNFLAG AS RETURNFLAG,
     a.L_LINESTATUS AS LINESTATUS,
-    CASE WHEN a.L_SHIPDATE > TO_DATE('{{ var('load_date') }}') THEN NULL ELSE a.L_SHIPDATE END AS SHIPDATE,
-    CASE WHEN a.L_COMMITDATE > TO_DATE('{{ var('load_date') }}') THEN NULL ELSE a.L_COMMITDATE END AS COMMITDATE,
-    CASE WHEN a.L_RECEIPTDATE > TO_DATE('{{ var('load_date') }}') THEN NULL ELSE a.L_RECEIPTDATE END AS RECEIPTDATE,
+    a.L_SHIPDATE AS SHIPDATE,
+    a.L_COMMITDATE AS COMMITDATE,
+    a.L_RECEIPTDATE AS RECEIPTDATE,
     a.L_SHIPINSTRUCT AS SHIPINSTRUCT,
     a.L_SHIPMODE AS SHIPMODE,
     a.L_COMMENT AS LINE_COMMENT,
@@ -36,13 +36,19 @@ SELECT
     e.R_NAME AS CUSTOMER_REGION_NAME,
     e.R_COMMENT AS CUSTOMER_REGION_COMMENT
 FROM {{ source('tpch_sample', 'ORDERS') }} AS b
-LEFT JOIN {{ source('tpch_sample', 'LINEITEM') }} AS a ON a.L_ORDERKEY = b.O_ORDERKEY
-LEFT JOIN {{ source('tpch_sample', 'CUSTOMER') }} AS c ON b.O_CUSTKEY  = c.C_CUSTKEY
-LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS d ON c.C_NATIONKEY  = d.N_NATIONKEY
-LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS e ON d.N_REGIONKEY  = e.R_REGIONKEY
-LEFT JOIN {{ source('tpch_sample', 'PART') }} AS g ON a.L_PARTKEY      = g.P_PARTKEY
-LEFT JOIN {{ source('tpch_sample', 'SUPPLIER') }} AS h ON a.L_SUPPKEY  = h.S_SUPPKEY
-LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS j ON h.S_NATIONKEY  = j.N_NATIONKEY
-LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS k ON j.N_REGIONKEY  = k.R_REGIONKEY
-
-WHERE b.O_ORDERDATE = TO_DATE('{{ var('load_date') }}')
+LEFT JOIN {{ source('tpch_sample', 'LINEITEM') }} AS a
+    ON a.L_ORDERKEY = b.O_ORDERKEY
+LEFT JOIN {{ source('tpch_sample', 'CUSTOMER') }} AS c
+    ON b.O_CUSTKEY  = c.C_CUSTKEY
+LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS d
+    ON c.C_NATIONKEY  = d.N_NATIONKEY
+LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS e
+    ON d.N_REGIONKEY  = e.R_REGIONKEY
+LEFT JOIN {{ source('tpch_sample', 'PART') }} AS g
+    ON a.L_PARTKEY = g.P_PARTKEY
+LEFT JOIN {{ source('tpch_sample', 'SUPPLIER') }} AS h
+    ON a.L_SUPPKEY = h.S_SUPPKEY
+LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS j
+    ON h.S_NATIONKEY = j.N_NATIONKEY
+LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS k
+    ON j.N_REGIONKEY = k.R_REGIONKEY

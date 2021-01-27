@@ -24,9 +24,14 @@ SELECT
     e.R_NAME AS SUPPLIER_REGION_NAME,
     e.R_COMMENT AS SUPPLIER_REGION_COMMENT
 FROM {{ source('tpch_sample', 'PARTSUPP') }} AS a
-LEFT JOIN {{ source('tpch_sample', 'SUPPLIER') }} AS b ON a.PS_SUPPKEY = b.S_SUPPKEY
-LEFT JOIN {{ source('tpch_sample', 'PART') }} AS c ON a.PS_PARTKEY = c.P_PARTKEY
-LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS d ON b.S_NATIONKEY = d.N_NATIONKEY
-LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS e ON d.N_REGIONKEY = e.R_REGIONKEY
-JOIN {{ ref('raw_orders') }} AS f ON a.PS_PARTKEY = f.PARTKEY AND a.PS_SUPPKEY=f.SUPPLIERKEY
+LEFT JOIN {{ source('tpch_sample', 'SUPPLIER') }} AS b
+    ON a.PS_SUPPKEY = b.S_SUPPKEY
+LEFT JOIN {{ source('tpch_sample', 'PART') }} AS c
+    ON a.PS_PARTKEY = c.P_PARTKEY
+LEFT JOIN {{ source('tpch_sample', 'NATION') }} AS d
+    ON b.S_NATIONKEY = d.N_NATIONKEY
+LEFT JOIN {{ source('tpch_sample', 'REGION') }} AS e
+    ON d.N_REGIONKEY = e.R_REGIONKEY
+JOIN {{ ref('raw_orders') }} AS f
+    ON a.PS_PARTKEY = f.PARTKEY AND a.PS_SUPPKEY=f.SUPPLIERKEY
 ORDER BY a.PS_PARTKEY, a.PS_SUPPKEY
