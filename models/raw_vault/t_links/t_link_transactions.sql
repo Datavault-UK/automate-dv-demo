@@ -4,7 +4,7 @@
 {%- set src_payload = ["TRANSACTION_NUMBER", "TRANSACTION_DATE", "TYPE", "AMOUNT"] -%}
 {%- set src_eff = "EFFECTIVE_FROM" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
-{%- set src_source = "SOURCE" -%}
+{%- set src_source = "RECORD_SOURCE" -%}
 
 {{ dbtvault.t_link(src_pk=src_pk, src_fk=src_fk, src_ldts=src_ldts,
                    src_payload=src_payload, src_eff=src_eff,

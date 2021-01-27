@@ -6,7 +6,7 @@
                        "SHIPINSTRUCT", "SHIPMODE", "TAX"] -%}
 {%- set src_eff = "EFFECTIVE_FROM" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
-{%- set src_source = "SOURCE" -%}
+{%- set src_source = "RECORD_SOURCE" -%}
 
 {{ dbtvault.sat(src_pk=src_pk, src_hashdiff=src_hashdiff,
                 src_payload=src_payload, src_eff=src_eff,
