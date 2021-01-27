@@ -2,3 +2,7 @@
 target/
 
 *.log
+
+.idea/
+
+dbt_modules
