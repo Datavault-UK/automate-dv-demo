@@ -8,9 +8,8 @@ hashed_columns:
   TRANSACTION_PK:
     - 'CUSTOMER_ID'
     - 'TRANSACTION_NUMBER'
-  CUSTOMER_FK: 'CUSTOMER_ID'
   CUSTOMER_PK: 'CUSTOMER_ID'
-  ORDER_FK: 'ORDER_ID'
+  ORDER_PK: 'ORDER_ID'
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}

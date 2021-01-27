@@ -1,6 +1,6 @@
 {%- set source_model = "v_stg_transactions" -%}
 {%- set src_pk = "TRANSACTION_PK" -%}
-{%- set src_fk = ["CUSTOMER_FK", "ORDER_FK"] -%}
+{%- set src_fk = ["CUSTOMER_PK", "ORDER_PK"] -%}
 {%- set src_payload = ["TRANSACTION_NUMBER", "TRANSACTION_DATE", "TYPE", "AMOUNT"] -%}
 {%- set src_eff = "EFFECTIVE_FROM" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
