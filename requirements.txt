@@ -95,7 +95,7 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
 pycryptodomex==3.9.9
-Pygments==2.6.1
+Pygments==2.7.4
 PyJWT==1.7.1
 pymdown-extensions==7.1
 pyOpenSSL==20.0.1
