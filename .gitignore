@@ -1,8 +1,9 @@
 
 target/
 
-*.log
+logs
 
 .idea/
 
 dbt_modules
+dbt_packages

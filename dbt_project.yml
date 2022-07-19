@@ -8,11 +8,11 @@ analysis-paths:
   - analysis
 clean-targets:
   - target
-data-paths:
-  - data
+seed-paths:
+  - seeds
 macro-paths:
   - macros
-source-paths:
+model-paths:
   - models
 test-paths:
   - tests
