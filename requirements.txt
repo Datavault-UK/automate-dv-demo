@@ -1,82 +1,53 @@
-agate==1.6.1
-asn1crypto==1.4.0
-attrs==21.2.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-azure-common==1.1.27
-azure-core==1.19.0
-azure-storage-blob==12.9.0
-babel==2.9.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-boto3==1.19.2; python_version >= '3.6'
-botocore==1.22.2; python_version >= '3.6'
-cachetools==4.2.4; python_version ~= '3.5'
-certifi==2021.10.8
-cffi==1.15.0
-chardet==4.0.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-charset-normalizer==2.0.7; python_version >= '3'
-colorama==0.4.4; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-cryptography==3.4.8; python_version >= '3.6'
-dbt-bigquery==0.21.0; python_full_version >= '3.6.2'
-dbt-core==0.21.0; python_full_version >= '3.6.3'
-dbt-extractor==0.4.0
-dbt-postgres==0.21.0; python_full_version >= '3.6.2'
-dbt-redshift==0.21.0; python_full_version >= '3.6.2'
-dbt-snowflake==0.21.0; python_full_version >= '3.6.2'
-dbt==0.21.0
-google-api-core[grpc]==1.31.3; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
-google-auth==1.35.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
-google-cloud-bigquery==2.28.1; python_version < '3.10' and python_version >= '3.6'
-google-cloud-core==1.7.2; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
-google-crc32c==1.3.0; python_version >= '3.6'
-google-resumable-media==2.0.3; python_version >= '3.6'
-googleapis-common-protos==1.53.0; python_version >= '3.6'
-grpcio==1.41.0
-hologram==0.0.14
-idna==3.3; python_version >= '3'
-importlib-metadata==4.8.1; python_version >= '3.6'
-isodate==0.6.0
-jeepney==0.7.1; sys_platform == 'linux'
-jinja2==2.11.3; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-jmespath==0.10.0; python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'
-json-rpc==1.13.0
-jsonschema==3.1.1
-keyring==21.8.0
+agate==1.6.3
+asn1crypto==1.5.1
+attrs==21.4.0
+Babel==2.10.3
+certifi==2022.6.15
+cffi==1.15.1
+charset-normalizer==2.0.12
+click==8.1.3
+colorama==0.4.4
+cryptography==3.4.8
+dbt-core==1.1.1
+dbt-extractor==0.4.1
+dbt-snowflake==1.1.0
+future==0.18.2
+hologram==0.0.15
+idna==3.3
+importlib-metadata==4.12.0
+isodate==0.6.1
+jeepney==0.8.0
+Jinja2==2.11.3
+jsonschema==3.2.0
+keyring==23.7.0
 leather==0.3.4
-logbook==1.5.3
-markupsafe==2.0.1; python_version >= '3.6'
-mashumaro==2.5; python_version >= '3.6'
+Logbook==1.5.3
+MarkupSafe==2.0.1
+mashumaro==2.9
 minimal-snowplow-tracker==0.0.2
-msgpack==1.0.2
-msrest==0.6.21
-networkx==2.6.3; python_version >= '3.7'
-oauthlib==3.1.1; python_version >= '3.6'
-oscrypto==1.2.1
-packaging==20.9; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-parsedatetime==2.6
-proto-plus==1.19.5; python_version >= '3.6'
-protobuf==3.17.3
-psycopg2-binary==2.9.1; python_version >= '3.6'
-pyasn1-modules==0.2.8
-pyasn1==0.4.8
-pycparser==2.20; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-pycryptodomex==3.11.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-pyjwt==2.3.0; python_version >= '3.6'
-pyopenssl==20.0.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-pyparsing==3.0.1; python_version >= '3.6'
-pyrsistent==0.18.0; python_version >= '3.6'
-python-dateutil==2.8.2; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
-python-slugify==5.0.2; python_version >= '3.6'
+msgpack==1.0.4
+networkx==2.8.3
+oscrypto==1.3.0
+packaging==21.3
+parsedatetime==2.4
+pycparser==2.21
+pycryptodomex==3.15.0
+PyJWT==2.4.0
+pyOpenSSL==21.0.0
+pyparsing==3.0.9
+pyrsistent==0.18.1
+python-dateutil==2.8.2
+python-slugify==6.1.2
 pytimeparse==1.1.8
-pytz==2021.3
-pyyaml==6.0; python_version >= '3.6'
-requests-oauthlib==1.3.0
-requests==2.26.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
-rsa==4.7.2; python_version >= '3.6'
-s3transfer==0.5.0; python_version >= '3.6'
-secretstorage==3.3.1; sys_platform == 'linux'
-six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
-snowflake-connector-python[secure-local-storage]==2.5.1; python_version >= '3.6'
-sqlparse==0.4.2; python_version >= '3.5'
+pytz==2022.1
+PyYAML==6.0
+requests==2.28.1
+SecretStorage==3.3.2
+six==1.16.0
+snowflake-connector-python==2.7.9
+sqlparse==0.4.2
 text-unidecode==1.3
-typing-extensions==3.10.0.2
-urllib3==1.26.7; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'
-werkzeug==2.0.2; python_version >= '3.6'
-zipp==3.6.0; python_version >= '3.6'
+typing_extensions==4.3.0
+urllib3==1.26.10
+Werkzeug==2.1.2
+zipp==3.8.1
