@@ -49,3 +49,6 @@ models:
       t_links:
         tags:
           - 't_link'
+      eff_sats:
+        tags:
+          - 'eff_satellite'
