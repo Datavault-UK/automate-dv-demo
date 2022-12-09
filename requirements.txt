@@ -2,7 +2,7 @@ agate==1.6.3
 asn1crypto==1.5.1
 attrs==21.4.0
 Babel==2.10.3
-certifi==2022.6.15
+certifi==2022.12.7
 cffi==1.15.1
 charset-normalizer==2.0.12
 click==8.1.3
