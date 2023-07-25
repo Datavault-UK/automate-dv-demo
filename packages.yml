@@ -1,3 +1,3 @@
 packages:
-  - package: Datavault-UK/dbtvault
-    version: 0.8.3
+  - package: Datavault-UK/automate_dv
+    version: 0.9.7
