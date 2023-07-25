@@ -4,6 +4,7 @@
 
   [![Slack](https://img.shields.io/badge/Slack-Join-yellow?style=flat&logo=slack)](https://join.slack.com/t/dbtvault/shared_invite/enQtODY5MTY3OTIyMzg2LWJlZDMyNzM4YzAzYjgzYTY0MTMzNTNjN2EyZDRjOTljYjY0NDYyYzEwMTlhODMzNGY3MmU2ODNhYWUxYmM2NjA)
 </div>
+
 ### dbt models for AutomateDV Snowflake Demonstration
 
 This is a downloadable example dbt project using [AutomateDV](https://github.com/Datavault-UK/automate-dv) to create a Data Vault 2.0 Data Warehouse
