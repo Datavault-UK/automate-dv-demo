@@ -26,7 +26,7 @@ models:
   dbtvault_snowflake_demo:
     raw_stage:
       +materialized: view
-      tags:
+      +tags:
         - 'raw'
     stage:
       +materialized: view
