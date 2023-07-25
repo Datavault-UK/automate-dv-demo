@@ -25,27 +25,27 @@ vars:
 models:
   dbtvault_snowflake_demo:
     raw_stage:
+      +materialized: view
       tags:
         - 'raw'
-      materialized: view
     stage:
-      tags:
+      +materialized: view
+      +tags:
         - 'stage'
-      enabled: true
-      materialized: view
+      +enabled: true
     raw_vault:
-      tags:
+      +materialized: incremental
+      +tags:
         - 'raw_vault'
-      materialized: incremental
       hubs:
-        tags:
+        +tags:
           - 'hub'
       links:
-        tags:
+        +tags:
           - 'link'
       sats:
-        tags:
+        +tags:
           - 'satellite'
       t_links:
-        tags:
+        +tags:
           - 't_link'
