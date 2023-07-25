@@ -15,9 +15,9 @@ based on the Snowflake TPC-H dataset.
 #### AutomateDV Docs
 [![Documentation Status](https://readthedocs.org/projects/dbtvault/badge/?version=latest)](https://automate-dv.readthedocs.io/en/latest/?badge=latest)
 
-Click the button above to read the latest dbtvault docs.
+Click the button above to read the latest AutomateDV docs.
 
-A guide for using this demo is available [here](https://automate-dv.readthedocs.io/en/latest/worked_example/)
+A step-by-step user guide for using this demo is available [here](https://automate-dv.readthedocs.io/en/latest/worked_example/)
 
 ---
 [dbt](https://www.getdbt.com/) is a registered trademark of dbt Labs).
