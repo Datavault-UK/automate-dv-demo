@@ -6,8 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-dbt-core = "==1.1.1"
-dbt-snowflake = "*"
+dbt-core = "~=1.7"
+dbt-snowflake = "~=1.7"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
